@@ -12,4 +12,25 @@ document.addEventListener("DOMContentLoaded", () => {
       toyFormContainer.style.display = "none";
     }
   });
+
+  fetch("http://localhost:3000/toys")
+        .then(res => res.json())
+        .then(data => {
+          console.log(data)
+          data.forEach(renderToys);
+        })
 });
+
+
+function renderToys(toys) {
+  let divCollection = document.querySelector("#toy-collection");
+  let toyName = document.createElement('h2');
+  toyName.textContent = toys.name;
+  let toyImg = document.createElement('img');
+  toyImg.src = toys.image;
+  let  toyLikes = document.createElement('p');
+  toyLikes.textContent = `${toys.likes} Likes`;
+  let toyBtn = document.createElement('button');
+  toyBtn.className
+
+}
